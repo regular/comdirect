@@ -6,7 +6,7 @@ const {getTransactions} = require('./low-level')
 const {refreshTokenFlowIfNeeded} = require('./high-level')
 
 ;(async function() {
-	const {accountId} = await comdirect.start({autoRefresh: false, webhook: false})
+	const {accountId} = await comdirect()
 
 	await refreshTokenFlowIfNeeded()
 
