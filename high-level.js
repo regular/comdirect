@@ -14,7 +14,8 @@ module.exports = function() {
     oAuthSecondaryFlow,
     refreshTokenFlow,
     getAccountInfo,
-    getTransactions
+    getTransactions,
+    getAccountBalances
   } = require('./low-level')({load, save})
 
   const CREDENTIALS_FILE_PATH = process.env.CREDENTIALS_FILE_PATH || '.credentials'
@@ -142,6 +143,7 @@ module.exports = function() {
     refreshTokenFlowIfNeeded,
     load,
     save,
-    getTransactions
+    getTransactions,
+    getAccountBalances
   }
 }

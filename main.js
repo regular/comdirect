@@ -9,8 +9,9 @@ module.exports = function() {
 
   return {
     getTokens,
+    getTransactions,
     refreshTokens: hl.refreshTokenFlowIfNeeded,
-    getTransactions
+    getAccountBalances: hl.getAccountBalances
   }
 
   function getTokens() {
