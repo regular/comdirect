@@ -26,8 +26,8 @@ function start(config = {autoRefresh: false, webhook: false, port: DEFAULT_PORT}
 			}
 			return mainResolve(data)
 		})
-		server.listen(config.port)
-		console.log('listen on port', config.port)
+		//server.listen(config.port)
+		//console.log('listen on port', config.port)
 
 		let result = null
 		if (config.webhook === false) {

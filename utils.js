@@ -17,7 +17,7 @@ async function getInput(question, hide = false) {
 	return new Promise((resolve, reject) => {
 		const rl = readline.createInterface({
 		    input: process.stdin,
-		    output: process.stdout
+		    output: process.stderr
 		})
 
 		if (hide) {

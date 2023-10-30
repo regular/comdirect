@@ -154,7 +154,7 @@ async function oAuthSecondaryFlow() {
 	const options = {
 		responseType: 'json',
 	    'method': 'POST',
-	    'url': '/oauth/token',
+	    'url': 'oauth/token',
 	    'headers': {
 	        'Content-Type': 'application/x-www-form-urlencoded',
 	        'Accept': 'application/json'
@@ -224,15 +224,20 @@ async function getTransactions(accountId, paging, minDate, maxDate) {
 	if (maxDate) {
 		array.push(['max-bookingDate', maxDate])
 	}
-	if (paging > 0) {
-		array.push(['transactionState', 'BOOKED'])
-		const tmp = new URLSearchParams(array)
-		searchParams = '?' + tmp.toString()
-	}
+  ///*
+	//if (paging > 0) {
+		array.push(['with-attr', 'account'])
+		array.push(['paging-count', 30])
+		array.push(['bookingStatus', 'BOOKED'])
+  //}*/
+  const tmp = new URLSearchParams(array)
+  searchParams = '?' + tmp.toString()
+  ??console.log(searchParams)
+
 	const options = {
 	    responseType: 'json',
 	    method: 'GET',
-	    url: `api/banking/v1/accounts/${accountId}/transactions` + searchParams,
+	    url: `api/banking/v2/accounts/${accountId}/transactions` + searchParams,
 	    headers: {
 	        'Accept': 'application/json',
 	        'Authorization': 'AUTO-INJECT',
