@@ -1,5 +1,40 @@
 # comdirect
 
+My (regular's) fork of timaschew/comdirect
+
+Changes in this fork:
+
+- Remove global state, so it can be used for two or more different accounts simultaneously.
+- Support mobile TAN (only), removes http server
+- simplified getTransactions API that handles pagination and date rangess
+
+```
+const comdirect = require('.')
+
+async function main() {
+  const {getTokens, refreshTokens, getTransactions} = comdirect()
+
+  const minDate = '2022-01-01'
+  const maxDate = '2022-02-01'
+
+  const tokens = await getTokens()
+  console.dir(tokens)
+  const {accountId} = tokens
+
+  await refreshTokens()
+  const result = await getTransactions(accountId[0], minDate, maxDate)
+  result.forEach(
+    ({bookingDate, transactionValue:{value, unit}, remittanceInfo})=>{
+      console.log(bookingDate, unit, value, remittanceInfo[0])
+    }
+  )
+}
+
+main()
+```
+
+# Original README (not accurate anymore)
+
 Un-official node.js module for the [comdirect REST API](https://www.comdirect.de/cms/kontakt-zugaenge-api.html)
 
 ## NOTE:

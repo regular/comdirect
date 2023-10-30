@@ -1,17 +1,13 @@
 {
   "name": "comdirect",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "Un-official node.js module for the comdirect REST API",
   "tags": [
     "comdirect",
     "banking",
     "bank"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/timaschew/comdirect"
-  },
-  "main": "main.js",
+  "main": "index.js",
   "author": "Anton Wilhelm",
   "license": "ISC",
   "dependencies": {
